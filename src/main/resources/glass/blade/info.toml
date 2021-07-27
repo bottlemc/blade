@@ -1,0 +1,7 @@
+id = "blade"
+version = "0.1.0"
+
+[environment]
+    [environment.has]
+    client = "*"
+    flame = ">=0.1.0"
