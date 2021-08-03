@@ -25,7 +25,8 @@ repositories {
 }
 
 dependencies {
-    runtimeOnly 'com.github.glassmc:loader:v0.4.2'
+    runtimeOnly 'com.github.glassmc:loader:v0.4.3'
 
-    implementation shard('flame', '0.1.0')
+    api 'com.github.glassmc:loader:v0.4.3'
+    implementation shard('molten', '0.1.0')
 }

@@ -1,7 +1,16 @@
 id = "blade"
 version = "0.1.0"
+namespace = "com.github.bottlemc.blade"
+
+[listeners]
+initialize = [
+    "BladeInitializeListener"
+]
+sheet = [
+    "BladeSheetListener"
+]
 
 [environment]
     [environment.has]
     client = "*"
-    flame = ">=0.1.0"
+    molten = ">=0.1.0"
