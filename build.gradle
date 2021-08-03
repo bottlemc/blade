@@ -28,5 +28,5 @@ dependencies {
     runtimeOnly 'com.github.glassmc:loader:v0.4.3'
 
     api 'com.github.glassmc:loader:v0.4.3'
-    implementation shard('molten', '0.1.0')
+    implementation shard('molten', '0.1.1')
 }
