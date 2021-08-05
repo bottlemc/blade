@@ -1,8 +1,6 @@
 package com.github.bottlemc.blade.display;
 
-import com.github.bottlemc.blade.configurable.Configurable;
-import com.github.bottlemc.blade.configurable.Setting;
-import com.github.bottlemc.blade.configurable.Toggle;
+import com.github.bottlemc.blade.configurable.*;
 import com.github.bottlemc.molten.Window;
 import com.github.glassmc.loader.GlassLoader;
 import com.github.glassmc.sculpt.Sculpt;
@@ -19,10 +17,16 @@ public class BladeWindow extends Window {
         super(configurable.getName(), null, new Container()
             .layout(new ListLayout(ListLayout.Type.VERTICAL))
             .apply(container -> {
-                for (Setting setting : configurable.getSettings()) {
-                    if(setting instanceof Toggle) {
+                for (SettingElement setting : configurable.getSettings()) {
+                    if (setting instanceof Toggle) {
                         container.getLayout(ListLayout.class)
                             .add(new ToggleContainer(configurable, (Toggle) setting));
+                    } else if (setting instanceof Slider) {
+                        container.getLayout(ListLayout.class)
+                            .add(new SliderContainer(configurable, (Slider) setting));
+                    } else if (setting instanceof Category) {
+                        container.getLayout(ListLayout.class)
+                            .add(new CategoryContainer(configurable, (Category) setting));
                     }
                 }
             }));

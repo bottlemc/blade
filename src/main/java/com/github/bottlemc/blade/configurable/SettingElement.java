@@ -1,4 +1,4 @@
 package com.github.bottlemc.blade.configurable;
 
-public class Setting {
+public class SettingElement {
 }

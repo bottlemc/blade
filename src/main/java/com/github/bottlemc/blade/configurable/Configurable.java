@@ -7,9 +7,9 @@ public class Configurable<T> {
 
     private final String name;
     private final T configuration;
-    private final Setting[] settings;
+    private final SettingElement[] settings;
 
-    public Configurable(String name, String configId, Setting... settings) {
+    public Configurable(String name, String configId, SettingElement... settings) {
         this.name = name;
         this.configuration = GlassLoader.getInstance().getAPI(Sheet.class).load(configId);
         this.settings = settings;
@@ -23,7 +23,7 @@ public class Configurable<T> {
         return configuration;
     }
 
-    public Setting[] getSettings() {
+    public SettingElement[] getSettings() {
         return settings;
     }
 

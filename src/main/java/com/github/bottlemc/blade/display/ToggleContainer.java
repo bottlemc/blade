@@ -23,18 +23,18 @@ public class ToggleContainer extends SettingContainer {
         toggled = (boolean) this.getValue(configurable, toggle.getId());
         try {
             this
-                .padding(new Relative(0.025))
-                .width(new Relative(0.9))
-                .height(new Absolute(10))
+                .padding(Direction.TOP, new Relative(0.0125))
+                .width(new Relative(1, -15, false))
+                .height(new Absolute(8))
                 .getLayout(RegionLayout.class)
                 .add(new Text()
                     .text(toggle.getName())
                     .color(new Absolute(flame.getConfiguration().foregroundPrimary))
-                    .font(Font.createFont(Font.TRUETYPE_FONT, BladeWindow.class.getClassLoader().getResourceAsStream("Roboto-Regular.ttf")))
-                    .size(new Relative(0.6, 0, true)),
+                    .font(Font.createFont(Font.TRUETYPE_FONT, BladeWindow.class.getClassLoader().getResourceAsStream("Roboto-Light.ttf")))
+                    .size(new Relative(0.65, 0, true)),
                     RegionLayout.Region.LEFT)
                 .add(new Container()
-                    .width(new Relative(0.2))
+                    .width(new Relative(1.6, 0, true))
                     .height(new Relative(0.8))
                     .cornerRadius(new Relative(0.4, 0, true))
                     .backgroundColor(new Absolute(flame.getConfiguration().elementBackground))
@@ -48,11 +48,12 @@ public class ToggleContainer extends SettingContainer {
                         .cornerRadius(new Relative(0.5, -1, true)),
                         RegionLayout.Region.CENTER)
                     .getContainer()
-                    .onClick(container1 -> {
+                    .onClick(interact -> {
                         toggled = !toggled;
                         this.setValue(configurable, toggle.getId(), toggled);
 
-                        Container container2 = (Container) container1.getChildren().get(0);
+                        Container container = (Container) interact.getElement();
+                        Container container2 = (Container) container.getChildren().get(0);
                         container2.backgroundColor(new Absolute(toggled ? enabledColor : disabledColor));
                     }),
                     RegionLayout.Region.RIGHT);

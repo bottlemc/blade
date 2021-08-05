@@ -1,11 +1,11 @@
 package com.github.bottlemc.blade.configurable;
 
-public class Toggle extends SettingElement {
+public class Slider extends SettingElement {
 
     private final String name;
     private final String id;
 
-    public Toggle(String name, String id) {
+    public Slider(String name, String id) {
         this.name = name;
         this.id = id;
     }
